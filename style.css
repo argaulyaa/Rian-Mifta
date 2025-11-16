@@ -520,3 +520,36 @@ footer li {
     top: 31px;
   }
 }
+
+/* SLIDE UP */
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 2s ease-out;
+}
+.slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SLIDE LEFT (muncul dari kiri) */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 2s ease-out;
+}
+.slide-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* SLIDE RIGHT (muncul dari kanan) */
+.slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 2s ease-out;
+}
+.slide-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
