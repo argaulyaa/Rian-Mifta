@@ -98,20 +98,23 @@ body {
 
 .mynavbar .offcanvas {
   height: 100vh;
+  width: 50%;
+  right: -15px;
 }
 
 .mynavbar .navbar-brand,
 .mynavbar .offcanvas-title {
   font-family: 'Sacramento', cursive;
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .mynavbar .nav-link {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .home {
+  overflow-y: hidden;
   overflow-x: hidden;
   background-image: url(img/bg.png);
   background-size: cover;
@@ -179,7 +182,7 @@ body {
 
 .home .quote-text {
   font-family: 'Sacramento';
-  font-size: 2.5rem; /* Ukuran yang cukup besar */
+  font-size: 3rem; /* Ukuran yang cukup besar */
   color: var(--gray);
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -538,6 +541,11 @@ footer li {
   .simply-countdown > .simply-section {
     padding: 30px 30px; /* Contoh: 20px vertikal, 10px horizontal */
     margin: 3px;
+  }
+
+  .mynavbar .nav-link {
+  font-size: 1.8rem;
+  text-transform: capitalize;
   }
 
   .home .couple{
