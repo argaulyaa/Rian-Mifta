@@ -515,9 +515,9 @@ footer li {
     text-align: center;
   }
 
-  /* .sticky-top {
+  .sticky-top {
     overflow: hidden;
-  } */
+  }
 
   .timeline li .timeline-image {
     width: 140px;
