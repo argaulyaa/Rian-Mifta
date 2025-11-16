@@ -493,6 +493,10 @@ footer li {
     font-size: 60%;
   }
 
+  .hero, .home, .info, .story, .rsvp, .gifts{
+    background-image: url(img/bgmobile.jpg);
+  }
+
   .simply-countdown > .simply-section {
     padding: 45px;
     margin: 3px;

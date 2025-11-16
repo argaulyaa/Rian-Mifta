@@ -439,10 +439,6 @@
 
       isPlaying = !isPlaying;
     }
-
-    // if (!localStorage.getItem('opened')) {
-    //   disableScroll();
-    // }
     disableScroll();
   </script>
   <script>
@@ -467,15 +463,12 @@
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get('n') || '';
 
-    // Hero section
     const namaContainer = document.querySelector('.hero h4 span');
     namaContainer.innerText = guestName ? guestName + ',' : 'Bapak/Ibu/Saudara/i,';
 
-    // Auto-fill ke Form RSVP
     document.querySelector('#nama').value = guestName;
   </script>
   <script>
-    // Tutup offcanvas otomatis ketika klik menu navigasi
     const navLinks = document.querySelectorAll('.offcanvas-body .nav-link');
     const offcanvasEl = document.getElementById('offcanvasNavbar');
 
