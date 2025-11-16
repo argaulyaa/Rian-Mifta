@@ -369,7 +369,7 @@
     simplyCountdown('.simply-countdown', {
       year: 2025, // required
       month: 11, // required
-      day: 23, // required
+      day: 26, // required
       hours: 13, // Default is 0 [0-23] integer
       words: { //words displayed into the countdown
         days: { singular: 'hari', plural: 'hari' },
@@ -473,6 +473,18 @@
 
     // Auto-fill ke Form RSVP
     document.querySelector('#nama').value = guestName;
+  </script>
+  <script>
+    // Tutup offcanvas otomatis ketika klik menu navigasi
+    const navLinks = document.querySelectorAll('.offcanvas-body .nav-link');
+    const offcanvasEl = document.getElementById('offcanvasNavbar');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+        bsOffcanvas.hide();
+      });
+    });
   </script>
 
 
