@@ -68,17 +68,20 @@
 
   <section id="home" class="home">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="slide-up col-md-8 text-center">
-          <h2>Ngunduh Mantu</h2>
-          <h3>Diselenggarakan pada 23 November di Jumapolo, Karanganyar.</h3>
-          <p>Oleh karena itu, dengan segala hormat, kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i, untuk hadir
-            pada acara pernikahan kami. </p>
+      <div class="row justify-content-center mb-0">
+        <div class="slide-down col-md-8 text-center">
+          <h2 class="mb-7">Ngunduh Mantu</h2>
+          <h3>Diselenggarakan pada 23 November 2025</h3>
+          <p>Oleh karena itu, dengan segala hormat,  </p>
+            <p>
+              kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i,
+            </p>
+            <p>untuk hadir pada acara pernikahan kami.</p>
         </div>
       </div>
 
       <div class="row couple">
-        <div class="col-lg-6 mb-5">
+        <div class="col-lg-6 mt-0 mb-5">
           <div class="slide-right row">
             <div class="col-8 text-end">
               <h3>Rian Ahmad Fauzi</h3>
@@ -106,6 +109,16 @@
           </div>
         </div>
       </div>
+      <div class="slide-up row justify-content-center mt-5">
+        <div class="col-md-8 col-10 text-center">
+          <p class="quote-text">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+            sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan
+            sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang
+            berpikir."
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -114,7 +127,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 col-10 text-center">
-          <h2>Informasi Acara</h2>
+          <h2 class="mb-7">Informasi Acara</h2>
           <p class="alamat">Alamat: Kediaman Mempelai Wanita<br> Randusari RT 02 RW 07, Jumapolo, Karanganyar</p>
 
           <iframe
@@ -183,7 +196,7 @@
       <div class="row justify-content-center">
         <div class="col-md-8 col-10 text-center">
           <span>Bagaimana Cinta Kami Bersemi</span>
-          <h2>Our Journey</h2>
+          <h2 class="mb-7">Our Journey</h2>
           <p>Inilah sepotong memori dari masa lalu yang terus mengalir ke masa depan. Sebuah kisah sederhana tentang
             cinta yang tumbuh perlahan, namun berakar sangat dalam, melawan derasnya waktu.</p>
         </div>
@@ -480,25 +493,6 @@
       });
     });
   </script>
-  <!-- <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // tambahkan class .show
-          entry.target.classList.add('show');
-
-          // supaya tidak animasi ulang (hindari getaran)
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2,                // elemen harus masuk 20% baru animasi
-      rootMargin: "0px 0px -10%"     // delay kecil biar lebih natural
-    });
-
-    document.querySelectorAll('.slide-up, .slide-left, .slide-right')
-      .forEach(el => observer.observe(el));
-  </script> -->
   <script>
     function openHero() {
 
@@ -509,16 +503,16 @@
       const hero = document.getElementById('hero');
       hero.classList.add('opened');
 
-      // tunggu animasi selesai lalu scroll ke home dan jalankan animasi
+      // tunggu animasi selesai (3000ms) lalu scroll ke home dan jalankan animasi
       setTimeout(() => {
         // 1. Scroll ke section home
         document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
-        
-        // 2. Aktifkan animasi slide di section home secara manual
-        document.querySelectorAll('#home .slide-up, #home .slide-left, #home .slide-right')
-                .forEach(el => el.classList.add('show'));
 
-      }, 900); // 900ms karena transisi di CSS adalah 1s (1000ms), 900ms sudah cukup
+        // 2. Aktifkan SEMUA animasi slide di section home secara manual
+        document.querySelectorAll('#home .slide-up, #home .slide-left, #home .slide-right, #home .slide-down')
+          .forEach(el => el.classList.add('show'));
+
+      }, 1500); // <-- Waktu diatur 3 detik (3000ms)
 
     }
   </script>

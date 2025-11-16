@@ -135,7 +135,7 @@ body {
 
 .home h3 {
   color: #444;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
 }
 
@@ -145,7 +145,7 @@ body {
 }
 
 .home .couple {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .home .couple h3 {
@@ -174,6 +174,18 @@ body {
   margin: auto;
   color: var(--gray);
 }
+
+/* style.css */
+
+.home .quote-text {
+  font-family: 'Sacramento';
+  font-size: 2.5rem; /* Ukuran yang cukup besar */
+  color: var(--gray);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
 
 .info {
   background-image: url(img/bg.png);
@@ -528,6 +540,10 @@ footer li {
     margin: 3px;
   }
 
+  .home .quote-text {
+    font-size: 2rem;
+  }
+
   .timeline li .timeline-image {
     width: 80px;
     height: 80px;
@@ -545,9 +561,14 @@ footer li {
   .timeline li .timeline-panel::after {
     top: 31px;
   }
+  .rsvp .row.g-3 > .col-12 {
+    max-width: 80%; /* Contoh: gunakan 90% dari lebar layar */
+    margin-left: auto; /* Untuk menengahkan elemen */
+    margin-right: auto; /* Untuk menengahkan elemen */
+  }
 }
 
-.slide-up, .slide-left, .slide-right {
+.slide-up, .slide-left, .slide-right, .slide-down {
   opacity: 0;
   transition: transform 2s cubic-bezier(0.25, 0.1, 0.25, 1),
               opacity 0.8s ease-out;
@@ -581,3 +602,14 @@ footer li {
   transform: translateX(0);
 }
 
+/* Slide Down */
+.slide-down {
+  opacity: 0;
+  /* Dimulai dari atas (nilai negatif) */
+  transform: translateY(-70px); 
+}
+.slide-down.show {
+  opacity: 1;
+  /* Kembali ke posisi normal */
+  transform: translateY(0);
+}
