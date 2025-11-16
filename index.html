@@ -34,7 +34,7 @@
       <h1>Rian & Mifta</h1>
       <p>Akan melangsungkan resepsi pernikahan dalam:</p>
       <div class="simply-countdown"></div>
-      <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">
+      <a href="#home" class="btn btn-lg mt-4" onClick="openHero()">
         <i class="bi bi-telegram"></i>
         Lihat Undangan</a>
     </main>
@@ -78,15 +78,15 @@
       </div>
 
       <div class="row couple">
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-5">
           <div class="slide-right row">
             <div class="col-8 text-end">
-              <h3>Khoirul Miftakhul Jannah</h3>
+              <h3>Rian Ahmad Fauzi</h3>
               <p>10 Januari 2026</p>
-              <p>Putri Keempat dari Bpk. H Sutaryo (Alm.) <br> dan <br> Ibu Sutinah</p>
+              <p>Putra Pertama dari Bpk. Yahman<br> dan <br> Ibu Supriyanti</p>
             </div>
             <div class="col-4">
-              <img src="img/mifta.jpg" alt="Mifta" class="img-responsive rounded-circle shadow-lg">
+              <img src="img/mifta.jpg" alt="Rian" class="img-responsive rounded-circle shadow-lg">
             </div>
           </div>
         </div>
@@ -96,12 +96,12 @@
         <div class="col-lg-6">
           <div class="slide-left row">
             <div class="col-4">
-              <img src="img/rian.jpg" alt="Rian" class="img-responsive rounded-circle shadow-lg">
+              <img src="img/rian.jpg" alt="Mifta" class="img-responsive rounded-circle shadow-lg">
             </div>
             <div class="col-8">
-              <h3>Rian Ahmad Fauzi</h3>
+              <h3>Khoirul Miftakhul Jannah</h3>
               <p>10 November 1950</p>
-              <p>Putra pertama dari Bpk. Yahman <br> dan <br> Ibu Supriyanti</p>
+              <p>Putri Keempat dari Bpk. H Sutaryo (Alm) <br> dan <br> Ibu Sutinah</p>
             </div>
           </div>
         </div>
@@ -480,21 +480,50 @@
       });
     });
   </script>
-  <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, {
-    threshold: 0.3,      // elemen harus terlihat 30% dulu baru animasi muncul
-    rootMargin: "0px 0px -80px 0px" // delay sampai elemen lebih masuk ke layar
-  });
+  <!-- <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // tambahkan class .show
+          entry.target.classList.add('show');
 
-  document.querySelectorAll('.slide-up, .slide-left, .slide-right')
-          .forEach(el => observer.observe(el));
-</script>
+          // supaya tidak animasi ulang (hindari getaran)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2,                // elemen harus masuk 20% baru animasi
+      rootMargin: "0px 0px -10%"     // delay kecil biar lebih natural
+    });
+
+    document.querySelectorAll('.slide-up, .slide-left, .slide-right')
+      .forEach(el => observer.observe(el));
+  </script> -->
+  <script>
+    function openHero() {
+
+      // hilangkan fungsi kunci scroll
+      enableScroll();
+
+      // tambahkan animasi card terbuka
+      const hero = document.getElementById('hero');
+      hero.classList.add('opened');
+
+      // tunggu animasi selesai lalu scroll ke home dan jalankan animasi
+      setTimeout(() => {
+        // 1. Scroll ke section home
+        document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
+        
+        // 2. Aktifkan animasi slide di section home secara manual
+        document.querySelectorAll('#home .slide-up, #home .slide-left, #home .slide-right')
+                .forEach(el => el.classList.add('show'));
+
+      }, 900); // 900ms karena transisi di CSS adalah 1s (1000ms), 900ms sudah cukup
+
+    }
+  </script>
+
+
 
 
 </body>
