@@ -536,7 +536,7 @@ footer li {
   }
 
   .simply-countdown > .simply-section {
-    padding: 45px;
+    padding: 30px 30px; /* Contoh: 20px vertikal, 10px horizontal */
     margin: 3px;
   }
 
