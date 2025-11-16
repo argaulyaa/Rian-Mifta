@@ -540,6 +540,11 @@ footer li {
     margin: 3px;
   }
 
+  .home .couple{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .home .quote-text {
     font-size: 2rem;
   }
