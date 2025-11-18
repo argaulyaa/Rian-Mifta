@@ -411,20 +411,35 @@ body.offcanvas-active #audio-container {
   border: 1px solid white;
 }
 
+/* Di style.css */
+
+/* Penyesuaian Footer */
 footer {
   padding: 3rem;
   background-color: var(--gray);
   color: white;
+  /* Sesuaikan jika background-color: var(--gray) sudah didefinisikan */
 }
 
+/* Style khusus untuk quote di footer */
+footer .quote-footer {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    color: #f0f0f0; /* Warna putih gading */
+    font-weight: 300;
+}
+
+/* Style untuk link navigasi di footer */
 footer a {
-  color: var(--bg);
-  font-weight: bold;
-  text-decoration: none;
+    color: white; /* Mengganti warna link navigasi di footer agar terlihat di background gelap */
+    font-weight: 400;
+    text-decoration: none;
+    margin: 0 10px; /* Jarak antar link */
 }
 
 footer a:hover {
-  color: white;
+  color: #ccc;
 }
 
 footer li {
