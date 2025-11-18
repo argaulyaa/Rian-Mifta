@@ -10,6 +10,17 @@ body {
   min-height: 4000px;
   overflow-x: hidden;
 }
+/* SOLUSI FIX BOUNCE/LONCAT DI MOBILE SAAT OFFCNVAS TERBUKA */
+
+/* Ketika offcanvas terbuka, body mendapatkan kelas .offcanvas-opening dan/atau .offcanvas-active.
+   Kita menetralkan elemen fixed/sticky agar tidak bergeser */
+body.offcanvas-opening .sticky-top,
+body.offcanvas-active .sticky-top,
+body.offcanvas-opening #audio-container,
+body.offcanvas-active #audio-container {
+    /* Mencegah pergeseran horizontal yang sering terjadi pada mobile */
+    transform: translateX(0) !important; 
+}
 
 .hero::before {
   content: '';
@@ -270,7 +281,7 @@ body {
   position: relative;
 }
 
-.timeline::before {
+/* .timeline::before {
   content: '';
   top: 0;
   bottom: 0;
@@ -278,7 +289,7 @@ body {
   width: 1px;
   background-color: #ccc;
   left: 50%;
-}
+} */
 
 .timeline li {
   margin-bottom: 1.5rem;
@@ -295,7 +306,7 @@ body {
   clear: both;
 }
 
-.timeline li .timeline-image {
+/* .timeline li .timeline-image {
   width: 160px;
   height: 160px;
   background-color: #ccc;
@@ -306,7 +317,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
+} */
 
 .timeline li .timeline-panel {
   width: 40%;
@@ -518,13 +529,67 @@ footer li {
     text-align: center;
   }
 
-  .sticky-top {
+  /* .sticky-top {
     overflow: hidden;
+  } */
+
+  .timeline li .timeline-panel {
+    width: 75% !important;
+    float: none !important;
+    transform: translateX(0) !important;
   }
 
-  .timeline li .timeline-image {
-    width: 140px;
-    height: 140px;
+  .timeline li .timeline-panel::before,
+  .timeline li .timeline-panel::after {
+    border: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  /* NORMAL → kiri */
+  .timeline li:not(.timeline-inverted) .timeline-panel {
+    float: left !important;
+  }
+  .timeline li:not(.timeline-inverted) .timeline-panel::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: -15px;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-bottom: 15px solid transparent;
+  }
+  .timeline li:not(.timeline-inverted) .timeline-panel::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    right: -13px;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-bottom: 14px solid transparent;
+  }
+
+  /* INVERTED → kanan */
+  .timeline li.timeline-inverted .timeline-panel {
+    float: right !important;
+  }
+  .timeline li.timeline-inverted .timeline-panel::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: -15px;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #ccc;
+    border-bottom: 15px solid transparent;
+  }
+  .timeline li.timeline-inverted .timeline-panel::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    left: -13px;
+    border-top: 14px solid transparent;
+    border-right: 14px solid #fff;
+    border-bottom: 14px solid transparent;
   }
 }
 
@@ -557,23 +622,65 @@ footer li {
     font-size: 2rem;
   }
 
-  .timeline li .timeline-image {
-    width: 80px;
-    height: 80px;
-  }
-
   .timeline li .timeline-panel {
-    width: 65%;
-    transform: translateX(-20px);
+    width: 75% !important;
+    float: none !important;
+    transform: translateX(0) !important;
   }
 
-  .timeline li .timeline-panel::before {
-    top: 30px;
-  }
-
+  .timeline li .timeline-panel::before,
   .timeline li .timeline-panel::after {
-    top: 31px;
+    left: auto !important;
+    right: auto !important;
+    border: none !important;
   }
+
+  /* Item NORMAL → kiri */
+  .timeline li:not(.timeline-inverted) .timeline-panel {
+    float: left !important;
+  }
+  .timeline li:not(.timeline-inverted) .timeline-panel::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: -15px;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-bottom: 15px solid transparent;
+  }
+  .timeline li:not(.timeline-inverted) .timeline-panel::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    right: -13px;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-bottom: 14px solid transparent;
+  }
+
+  /* Item INVERTED → kanan */
+  .timeline li.timeline-inverted .timeline-panel {
+    float: right !important;
+  }
+  .timeline li.timeline-inverted .timeline-panel::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: -15px;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #ccc;
+    border-bottom: 15px solid transparent;
+  }
+  .timeline li.timeline-inverted .timeline-panel::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    left: -13px;
+    border-top: 14px solid transparent;
+    border-right: 14px solid #fff;
+    border-bottom: 14px solid transparent;
+  }
+  
   .rsvp .row.g-3 > .col-12 {
     max-width: 80%; /* Contoh: gunakan 90% dari lebar layar */
     margin-left: auto; /* Untuk menengahkan elemen */
@@ -598,8 +705,12 @@ footer li {
 }
 
 /* Slide Left */
+/* Di bagian style.css (di luar media query) */
+
+/* Slide Left */
 .slide-left {
-  transform: translateX(-70px);
+  /* UBAH: Tingkatkan ke -150px agar lebih mudah dideteksi mobile/tablet */
+  transform: translateX(-150px); 
 }
 .slide-left.show {
   opacity: 1;
@@ -608,18 +719,20 @@ footer li {
 
 /* Slide Right */
 .slide-right {
-  transform: translateX(70px);
+  /* UBAH: Tingkatkan ke 150px agar lebih mudah dideteksi mobile/tablet */
+  transform: translateX(150px); 
 }
 .slide-right.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Slide Down */
+/* (Opsional, tapi disarankan untuk konsistensi) */
+.slide-up {
+  transform: translateY(100px); 
+}
 .slide-down {
-  opacity: 0;
-  /* Dimulai dari atas (nilai negatif) */
-  transform: translateY(-70px); 
+  transform: translateY(-100px); 
 }
 .slide-down.show {
   opacity: 1;
