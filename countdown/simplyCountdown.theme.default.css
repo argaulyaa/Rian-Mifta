@@ -1,7 +1,10 @@
 .simply-countdown {
   overflow: hidden;
   display: table;
-  margin: auto;
+  margin-left: auto; /* Memastikan tetap di tengah */
+  margin-right: auto; /* Memastikan tetap di tengah */
+  margin-top: auto; /* Atau bisa disetel sesuai kebutuhan */
+  margin-bottom: 50px; /* **Ganti 50px dengan ukuran yang Anda inginkan** */
 }
 .simply-countdown > .simply-section {
   width: 30px;
